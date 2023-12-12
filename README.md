@@ -4,4 +4,3 @@ Demo a Terraform template using GitHub Actions to deploy a VPC and EC2 instance 
 
 Terraform is connected to Terraform Cloud.
 
-Snyk is
