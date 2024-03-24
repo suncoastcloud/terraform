@@ -1,5 +1,7 @@
 # Ignore Terraform provider executables
-**/.terraform/providers/*
+**/.terraform*
 
-# Ignore Terraform state files
+# Ignore Terraform state, backup, lock files
 **/terraform.*
+
+**/.terraform.lock.hcl
