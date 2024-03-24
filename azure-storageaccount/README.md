@@ -1,0 +1,1 @@
+# Create an Azure Resource Group and Storage account with Terraform using the Random provider
