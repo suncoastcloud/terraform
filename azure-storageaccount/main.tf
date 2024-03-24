@@ -21,6 +21,7 @@ provider "azurerm" {
 
 
 # Random resource group name
+
 resource "random_pet" "rg_name" {
   prefix = "scc"
 }

@@ -1,5 +1,7 @@
 azure-vm-vnet/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.91.0/windows_amd64/terraform-provider-azurerm_v3.91.0_x5.exe
 azure-vm-vnet/.terraform/providers/registry.terraform.io/hashicorp/random/3.6.0/windows_amd64/terraform-provider-random_v3.6.0_x5.exe
+aws-instance/terraform.tfstate
+azure-vm-vnet/terraform.tfstate
 azure-vm-vnet/terraform.tfstate.backup
 azure-vm-vnet/.terraform.lock.hcl
 aws-instance/.terraform.lock.hcl
@@ -8,3 +10,4 @@ azure-storageaccount/.terraform.lock.hcl
 azure-storageaccount/terraform.tfstate.backup
 azure-storageaccount/.terraform/providers/registry.terraform.io/hashicorp/azurerm/3.97.1/windows_amd64/terraform-provider-azurerm_v3.97.1_x5.exe
 azure-storageaccount/.terraform/providers/registry.terraform.io/hashicorp/random/3.6.0/windows_amd64/terraform-provider-random_v3.6.0_x5.exe
+
