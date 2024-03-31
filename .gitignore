@@ -4,4 +4,4 @@
 # Ignore Terraform state, backup, lock files
 **/terraform.*
 
-**/.terraform.lock.hcl
+
