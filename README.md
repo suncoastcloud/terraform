@@ -1,1 +1,2 @@
-Terraform Examples
+Terraform Samples
+
