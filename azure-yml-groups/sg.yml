@@ -1,0 +1,8 @@
+type: group
+metadata:
+  name: role-directoryreaders
+spec:
+  assignableToRole: true
+  name: sg.directoryreaders
+  memberRoleGroups:
+  
