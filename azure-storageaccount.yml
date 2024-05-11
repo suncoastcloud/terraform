@@ -1,0 +1,35 @@
+# Deploy a storage account in GitHub
+
+trigger:
+- main
+
+pool: msi-pool
+
+steps:
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: azure-storageaccount
+    backendServiceArm: 'suncoastcloud(a5edabc6-a664-415a-abb8-0ee5d15cf37e)'
+    backendAzureRmResourceGroupName: 'sa-rg'
+    backendAzureRmStorageAccountName: 'scc631558'
+    backendAzureRmContainerName: 'pipeline'
+    backendAzureRmKey: azure-storageaccount.tfstate
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: azure-storageaccount
+    commandOptions: '-out=tfplan'
+    environmentServiceNameAzureRM: 'suncoastcloud(a5edabc6-a664-415a-abb8-0ee5d15cf37e)'
+
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: azure-storageaccount
+    commandOptions: 'tfplan'
+    environmentServiceNameAzureRM: 'suncoastcloud(a5edabc6-a664-415a-abb8-0ee5d15cf37e)'
