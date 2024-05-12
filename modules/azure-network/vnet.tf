@@ -1,4 +1,3 @@
-
 resource "azurerm_virtual_network" "vnet_module" {
     name                = var.vnet_name
     address_space       = var.vnet_address_space
