@@ -1,16 +1,16 @@
-variable "vnet_name" {
+variable "name" {
   description = "Name of the virtual network"
   type        = string
   default = "myVNet"
 }
 
-variable "vnet_address_space" {
+variable "address_space" {
   description = "Address space of the virtual network"
   type        = list(string)
   default     = ["10.0.0.0/16"]
 }
 
-variable "vnet_location" {
+variable "location" {
   description = "Location of the virtual network"
   type        = string
   default     = "southcentralus"
