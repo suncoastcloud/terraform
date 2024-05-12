@@ -16,6 +16,11 @@ variable "vnet_location" {
   default     = "southcentralus"
 }
 
+variable "vnets" {
+  description = "A map of virtual networks"
+  type        = map(any)
+}
+
 variable "resource_group_name" {
   description = "Name of the resource group"
   type        = string
