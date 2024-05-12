@@ -1,28 +1,23 @@
 variable "name" {
-  description = "Name of the virtual network"
   type        = string
-  default = "myVNet"
+  description = "The name of the virtual network"
+  default     = "my-vnet"
 }
 
 variable "address_space" {
-  description = "Address space of the virtual network"
   type        = list(string)
+  description = "The address space of the virtual network"
   default     = ["10.0.0.0/16"]
 }
 
 variable "location" {
-  description = "Location of the virtual network"
   type        = string
+  description = "The location of the virtual network"
   default     = "southcentralus"
 }
 
-variable "vnets" {
-  description = "A map of virtual networks"
-  type        = map(any)
-}
-
 variable "resource_group_name" {
-  description = "Name of the resource group"
   type        = string
-  default = "myResourceGroup"
+  description = "The name of the resource group"
+  default     = "modules-rg"
 }
