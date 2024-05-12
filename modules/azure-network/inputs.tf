@@ -1,4 +1,4 @@
-variable "name" {
+variable "vnet_name" {
   type        = string
   description = "The name of the virtual network"
   default     = "my-vnet"
@@ -21,3 +21,4 @@ variable "resource_group_name" {
   description = "The name of the resource group"
   default     = "modules-rg"
 }
+
