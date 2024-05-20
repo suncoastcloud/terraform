@@ -4,14 +4,14 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_virtual_network" "vnet" {
-  name                = "network"
+  name                = "vnet"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   address_space       = ["10.0.0.0/16"]
 }
 
 resource "azurerm_subnet" "subnet" {
-  name                 = "internal"
+  name                 = "subnet"
   resource_group_name  = azurerm_resource_group.rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["10.0.2.0/24"]
@@ -30,21 +30,33 @@ resource "azurerm_network_interface" "nic" {
   resource_group_name = azurerm_resource_group.rg.name
 
   ip_configuration {
-    name                          = "internal"
+    name                          = "ip-config"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.public_ip.id
   }
 }
 
+# get ssh pub key for vm
+
+data "azurerm_ssh_public_key" "existing" {
+  name                = "scc-ado"
+  resource_group_name = "ado-rg"
+}
+
+# create vm
 
 resource "azurerm_linux_virtual_machine" "vm" {
   name                  = "machine"
   resource_group_name   = azurerm_resource_group.rg.name
   location              = azurerm_resource_group.rg.location
   size                  = "Standard_F2"
+  network_interface_ids = [azurerm_network_interface.nic.id]
   admin_username        = "adminuser"
-  network_interface_ids = [azurerm_network_interface.nic.id] 
+  admin_ssh_key {
+    username   = "adminuser"
+    public_key = data.azurerm_ssh_public_key.existing.public_key
+  }
 
   os_disk {
     caching              = "ReadWrite"
@@ -57,8 +69,4 @@ resource "azurerm_linux_virtual_machine" "vm" {
     sku       = "8_9"
     version   = "latest"
   }
-
-  computer_name                   = "hostname"
-  admin_password                  = "1234"
-  disable_password_authentication = false
 }
