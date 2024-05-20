@@ -49,20 +49,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
     version   = "latest"
   }
 
-  # source_image_reference {
-  #   publisher = "redhat-rhel"
-  #   offer     = "rh-rhel"
-  #   sku       = "rh-rhel8-gen1"
-  #   version   = "latest"
-  # }
-
-  # plan {
-  #   publisher = "redhat-rhel"
-  #   product   = "rh-rhel"
-  #   name      = "rh-rhel8-gen1"
-  # }
-
   computer_name                   = "hostname"
-  admin_password                  = "P@ssw0rd123!"
+  admin_password                  = "1234"
   disable_password_authentication = false
 }
