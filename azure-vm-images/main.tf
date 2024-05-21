@@ -39,8 +39,8 @@ resource "azurerm_network_interface" "nic" {
 
 # get public ssh key
 
-data "azurerm_ssh_public_key" "existing" {
-  name                = "scc-ado"
+data "azurerm_ssh_public_key" "ssh-key" {
+  name                = "msi-azure"
   resource_group_name = "ado-rg"
 }
 
@@ -55,7 +55,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   admin_username        = "adminuser"
   admin_ssh_key {
     username   = "adminuser"
-    public_key = data.azurerm_ssh_public_key.existing.public_key
+    public_key = data.azurerm_ssh_public_key.ssh-key.public_key
   }
 
   os_disk {
