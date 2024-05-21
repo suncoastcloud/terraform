@@ -37,7 +37,7 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-# get ssh pub key for vm
+# get public ssh key
 
 data "azurerm_ssh_public_key" "existing" {
   name                = "scc-ado"
