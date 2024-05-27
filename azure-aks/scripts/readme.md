@@ -1,0 +1,1 @@
+this directory is separate from the other directories. It contains a script that creates an acr and aks cluster but not using iac.
