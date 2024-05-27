@@ -1,0 +1,5 @@
+# .dockerignore
+*.tf
+*.tfstate
+*.tfvars
+*.terraform

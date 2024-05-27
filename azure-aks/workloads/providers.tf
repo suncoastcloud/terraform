@@ -14,9 +14,6 @@ terraform {
 provider "azurerm" {
     features {}
 }
-
-# pulls the current context from the kubeconfig file (sccakscluster2434)
 provider "kubernetes" {
     config_path = "~/.kube/config"
-    config_context = "current"
 }
