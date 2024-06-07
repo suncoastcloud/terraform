@@ -40,8 +40,8 @@ resource "azurerm_network_interface" "nic" {
 # get public ssh key
 
 data "azurerm_ssh_public_key" "ssh-key" {
-  name                = "msi-azure"
-  resource_group_name = "ado-rg"
+  name                = "vms"
+  resource_group_name = "vault-rg"
 }
 
 # create vm
