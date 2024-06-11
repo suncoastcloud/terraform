@@ -1,7 +1,8 @@
 # Random resource group name
 
 resource "random_pet" "rg_name" {
-  prefix = "scc"
+  length = 2
+  separator = "-" 
 }
 
 # Random storage account name
@@ -25,7 +26,7 @@ resource "azurerm_storage_account" "sa" {
 }
 
 resource "azurerm_storage_container" "container" {
-  name                  = "scc-container"
+  name                  = "scripts"
   storage_account_name  = azurerm_storage_account.sa.name
   container_access_type = "private"
   
@@ -36,6 +37,6 @@ resource "azurerm_storage_blob" "script" {
   storage_account_name   = azurerm_storage_account.sa.name
   storage_container_name = azurerm_storage_container.container.name
   type                   = "Block"
-  source_content = "../scripts/cis.sh"
+  source = "../scripts/red_hat_enterprise_linux_8.tar.gz"
   
 }
