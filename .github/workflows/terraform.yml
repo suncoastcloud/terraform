@@ -44,13 +44,14 @@
 
 name: 'Terraform'
 
-on:
-  workflow_dispatch:
-  push:
-    branches: [ "main" ]
-    paths-ignore:
-      - '**/README.md'
-  pull_request:
+#commented out to disable
+# on:
+#  workflow_dispatch:
+#  push:
+#    branches: [ "main" ]
+#    paths-ignore:
+#      - '**/README.md'
+#  pull_request:
 
 permissions:
   contents: read
