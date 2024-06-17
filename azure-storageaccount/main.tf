@@ -26,14 +26,14 @@ resource "azurerm_storage_account" "sa" {
 }
 
 resource "azurerm_storage_container" "container" {
-  name                  = "scripts"
+  name                  = var.storage_container_name
   storage_account_name  = azurerm_storage_account.sa.name
   container_access_type = "private"
   
 }
 
 resource "azurerm_storage_blob" "script" {
-  name                   = "cis-script"
+  name                   = var.storage_blob_name
   storage_account_name   = azurerm_storage_account.sa.name
   storage_container_name = azurerm_storage_container.container.name
   type                   = "Block"
