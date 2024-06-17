@@ -1,5 +1,5 @@
 variable "prefix" {
   type        = string
-  default     = "win-vm-iis"
+  default     = "scc"
   description = "Prefix of the resource name"
 }

@@ -81,7 +81,7 @@ resource "azurerm_network_interface_security_group_association" "sg" {
 
 # Create virtual machine
 resource "azurerm_windows_virtual_machine" "main" {
-  name                  = "windows2022dc-vm"
+  name                  = "${random_pet.prefix.id}-vm"
   admin_username        = "azureuser"
   admin_password        = random_password.password.result
   location              = azurerm_resource_group.rg.location
